@@ -4,11 +4,12 @@
   "description": "Mocha test runner usage example",
   "main": "add.js",
   "scripts": {
-    "test": "mocha"
+    "test": "nyc mocha"
   },
   "author": "David E Lares S <david.e.lares@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^8.1.3"
+    "mocha": "^8.1.3",
+    "nyc": "^15.1.0"
   }
 }

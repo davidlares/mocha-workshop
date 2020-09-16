@@ -33,3 +33,18 @@ describe('The findUserByEmail', () => {
     })
   })
 })
+
+// completing the coverage here
+describe('The finduserById function', () => {
+  it('should find a user by id', async() => {
+    const response = await findUserById(1)
+    assert.equal(response.message, 'User found successfully')
+  })
+  it('should refect if user is not found by id', () => {
+    return findUserById(90).then(() => {
+      assert.fail('Expected findUserById function to throw')
+    }, error => {
+      assert.equal(error.message, 'User with id 90 was not found')
+    })
+  })
+})

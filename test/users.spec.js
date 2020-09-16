@@ -19,8 +19,17 @@ describe('The findUserByEmail', () => {
   })
 
   // using async/await
-  it('find a suer by email (async/await)', async () => {
+  it('find a user by email (async/await)', async () => {
     const response = await findUserByEmail('david.e.lares@gmail.com')
     assert.equal(response.message, 'User found successfully')
+  })
+
+  // reject
+  it('rejects with error if user with email was not found', () => {
+    return findUserByEmail('david@facebook.com').then(() => {
+      assert.fail('Expected findUserByEmail function to reject')
+    }, error => {
+      assert.equal(error.message, 'User with email david@facebook.com was not found')
+    })
   })
 })
